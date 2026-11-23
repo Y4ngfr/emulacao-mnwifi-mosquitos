@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="procedimento-experimental" name="Procedimento experimental">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="titulo" value="Procedimento experimental" style="text;html=1;fontStyle=1;fontSize=14;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="20" y="5" width="300" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- Gerenciador de execuções -->
+        <mxCell id="A" value="&lt;b&gt;Definir os fatores&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;nº de sensores e de APs, cenário,&lt;br&gt;repetições, semente e duração&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="65" width="230" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="Q" value="Há combinações&lt;br&gt;pendentes?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="55" width="220" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="D" value="&lt;b&gt;Consolidar resultados&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;CSV por run e CSV consolidado&lt;br&gt;(sensores e fluxos)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="65" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="fim" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="90" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="eAQ" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="A" target="Q">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eQD" value="não" style="endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="Q" target="D">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eDF" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="D" target="fim">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Uma run -->
+        <mxCell id="run" value="Uma run (processo isolado: mininet_ambiente.py)" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;arcSize=3;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="1110" height="400" as="geometry" />
+        </mxCell>
+
+        <mxCell id="eQrun" value="sim" style="endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.351;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="Q" target="run">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="eRetorno" value="próxima combinação" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;exitX=0;exitY=0.3;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="run" target="Q">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="30" y="320" />
+              <mxPoint x="30" y="40" />
+              <mxPoint x="450" y="40" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Linha 1: preparação da rede e dos serviços -->
+        <mxCell id="s1" value="&lt;b&gt;1. Gerar a topologia&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;posições e IPs a partir&lt;br&gt;da semente&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="250" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="&lt;b&gt;2. Construir a rede&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;nós, APs e backhaul&lt;br&gt;(Mininet-WiFi)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="250" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="&lt;b&gt;3. Associar o WiFi&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;hostapd pronto e sensores&lt;br&gt;associados ao SSID&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="530" y="250" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" value="&lt;b&gt;4. Rotas e conectividade&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;ping de cada sensor ao&lt;br&gt;gateway e ao servidor&lt;/font&gt;&lt;br&gt;&lt;font style='font-size: 10px;' color='#b85450'&gt;falha: aborta com diagnóstico&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="750" y="250" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" value="&lt;b&gt;5. Iniciar os serviços&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;Mosquitto, servidor.py&lt;br&gt;e sensores&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="970" y="250" width="180" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Linha 2: execução, coleta e encerramento (da direita para a esquerda) -->
+        <mxCell id="s6" value="&lt;b&gt;6. Sincronizar o início&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;aguarda os sensores prontos&lt;br&gt;e publica o comando de início&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="970" y="440" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s7" value="&lt;b&gt;7. Executar o cenário&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;a cada 1 s avalia eventos e&lt;br&gt;atualiza o ambiente dos sensores&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="750" y="440" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s8" value="&lt;b&gt;8. Coletar as métricas&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;contadores dos sensores e&lt;br&gt;métricas por fluxo do servidor&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="530" y="440" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s9" value="&lt;b&gt;9. Encerrar&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;para sensores, servidor,&lt;br&gt;broker e a rede&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="440" width="180" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e12" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="s1" target="s2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e23" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="s2" target="s3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e34" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="s3" target="s4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e45" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="s4" target="s5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e56" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="s5" target="s6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e67" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="s6" target="s7"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e78" value="fim da duração" style="endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="s7" target="s8"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e89" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="s8" target="s9"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,110 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="sequencia-planos" name="Sequência: controle e dados">
+    <mxGraphModel dx="1200" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="titulo" value="Diagrama de sequência: plano de controle e plano de dados" style="text;html=1;fontStyle=1;fontSize=14;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="20" y="5" width="560" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- Faixas dos planos -->
+        <mxCell id="bandaC" value="" style="rounded=1;arcSize=2;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;opacity=45;" vertex="1" parent="1">
+          <mxGeometry x="20" y="115" width="1150" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="bandaD" value="" style="rounded=1;arcSize=2;fillColor=#ffe6cc;strokeColor=#d79b00;dashed=1;opacity=45;" vertex="1" parent="1">
+          <mxGeometry x="20" y="495" width="1150" height="225" as="geometry" />
+        </mxCell>
+
+        <!-- Linhas de vida -->
+        <mxCell id="lv1" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#808080;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="130" y="100" as="sourcePoint" /><mxPoint x="130" y="720" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="lv2" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#808080;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="100" as="sourcePoint" /><mxPoint x="380" y="720" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="lv3" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#808080;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="630" y="100" as="sourcePoint" /><mxPoint x="630" y="720" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="lv4" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#808080;strokeWidth=1.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="880" y="100" as="sourcePoint" /><mxPoint x="880" y="720" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <!-- Participantes -->
+        <mxCell id="p1" value="&lt;b&gt;Orquestrador&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;(experimento)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="45" width="180" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" value="&lt;b&gt;Sensor&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;(sensor.py)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="45" width="180" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" value="&lt;b&gt;Broker&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;(Mosquitto)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="540" y="45" width="180" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" value="&lt;b&gt;Servidor&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;(servidor.py)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="790" y="45" width="180" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Rótulos dos planos -->
+        <mxCell id="rotC" value="&lt;b&gt;Plano de controle&lt;/b&gt;&lt;br&gt;MQTT sobre TCP&lt;br&gt;porta 1883, QoS 1" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontColor=#1F4E9E;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="235" width="165" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rotD" value="&lt;b&gt;Plano de dados&lt;/b&gt;&lt;br&gt;RTP sobre UDP&lt;br&gt;porta 9001" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontColor=#C75B00;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="555" width="165" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Plano de controle -->
+        <mxCell id="m1" value="CONNECT + publish «sinal»" style="endArrow=classic;html=1;dashed=1;strokeColor=#1F4E9E;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="155" as="sourcePoint" /><mxPoint x="630" y="155" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m2" value="SUBSCRIBE experimento/iniciar" style="endArrow=classic;html=1;dashed=1;strokeColor=#1F4E9E;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="195" as="sourcePoint" /><mxPoint x="630" y="195" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m3" value="publish experimento/solicitar" style="endArrow=classic;html=1;dashed=1;strokeColor=#1F4E9E;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="130" y="240" as="sourcePoint" /><mxPoint x="630" y="240" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m4" value="entrega «solicitar»" style="endArrow=classic;html=1;dashed=1;strokeColor=#1F4E9E;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="630" y="280" as="sourcePoint" /><mxPoint x="880" y="280" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m5" value="publish experimento/iniciar" style="endArrow=classic;html=1;dashed=1;strokeColor=#1F4E9E;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="880" y="320" as="sourcePoint" /><mxPoint x="630" y="320" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m6" value="entrega «iniciar»" style="endArrow=classic;html=1;dashed=1;strokeColor=#1F4E9E;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="630" y="360" as="sourcePoint" /><mxPoint x="380" y="360" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="m7" value="publish «sinal»: monitoramento iniciado" style="endArrow=classic;html=1;dashed=1;strokeColor=#1F4E9E;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="400" as="sourcePoint" /><mxPoint x="630" y="400" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <!-- Detecção local -->
+        <mxCell id="loc" value="captura, inferência e&lt;br&gt;&lt;b&gt;mosquito detectado&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="280" y="438" width="200" height="42" as="geometry" />
+        </mxCell>
+
+        <!-- Plano de dados -->
+        <mxCell id="loop" value="loop: 1 pacote a cada 20 ms" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#C75B00;verticalAlign=top;align=left;spacingLeft=6;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="300" y="515" width="670" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" value="pacote RTP (ADPCM, timestamp)" style="endArrow=classic;html=1;strokeColor=#C75B00;strokeWidth=2.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="555" as="sourcePoint" /><mxPoint x="880" y="555" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="d2" value="pacote RTP (ADPCM, timestamp)" style="endArrow=classic;html=1;strokeColor=#C75B00;strokeWidth=2.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="590" as="sourcePoint" /><mxPoint x="880" y="590" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="d3" value="último pacote RTP (marker = 1)" style="endArrow=classic;html=1;strokeColor=#C75B00;strokeWidth=2.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="380" y="640" as="sourcePoint" /><mxPoint x="880" y="640" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="nB" value="não participa do plano de dados" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontColor=#666666;fontStyle=2;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="550" y="672" width="160" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="nS" value="volta a MONITORAR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="290" y="672" width="180" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="nV" value="remonta e salva o áudio;&lt;br&gt;registra latência, vazão e perdas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="770" y="660" width="220" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

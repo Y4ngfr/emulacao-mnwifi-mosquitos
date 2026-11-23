@@ -1,0 +1,178 @@
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="manual" version="24.0.0">
+  <diagram id="topologia-a" name="(a) Topologia emulada">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ===================== TÍTULO ===================== -->
+        <mxCell id="titulo" value="(a) Topologia emulada e endereçamento"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="520" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== CLUSTER 0 ===================== -->
+        <!-- Caixa tracejada do cluster -->
+        <mxCell id="cluster0" value="Cluster 0 (SSID cluster_0, sub-rede 10.0.0.0/16)&#10;802.11g, canal 3, wmediumd (interferência)"
+          style="rounded=0;whiteSpace=wrap;html=1;dashed=1;strokeColor=#666666;fillColor=none;verticalAlign=top;align=center;fontSize=10;spacingTop=2;spacingBottom=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="520" height="330" as="geometry" />
+        </mxCell>
+
+        <!-- Sensor 0 -->
+        <mxCell id="s0" value="sensor_0&#10;10.0.0.10/16"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=11;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="120" y="110" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Sensor 1 -->
+        <mxCell id="s1" value="sensor_1&#10;10.0.0.11/16"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=11;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="120" y="200" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Reticências -->
+        <mxCell id="vdots" value="⋮"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=16;"
+          vertex="1" parent="1">
+          <mxGeometry x="165" y="255" width="30" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Sensor n-1 -->
+        <mxCell id="sn" value="sensor_(n-1)&#10;10.0.0.(9+n)/16"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=11;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="120" y="285" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- AP0 -->
+        <mxCell id="ap0" value="ap_0&#10;ponte L2 (OVS)"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=11;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="440" y="200" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Enlaces wifi (pontilhados) sensor -> ap -->
+        <mxCell id="w0" value="" style="endArrow=none;html=1;dashed=1;dashPattern=1 3;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="s0" target="ap0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w1" value="" style="endArrow=none;html=1;dashed=1;dashPattern=1 3;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="s1" target="ap0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wn" value="" style="endArrow=none;html=1;dashed=1;dashPattern=1 3;strokeWidth=2;strokeColor=#333333;" edge="1" parent="1" source="sn" target="ap0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== BACKHAUL ===================== -->
+        <!-- gw -->
+        <mxCell id="gw" value="gw"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=11;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="660" y="200" width="100" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- servidor0 -->
+        <mxCell id="srv" value="servidor_0&#10;Mosquitto :1883/TCP&#10;servidor.py :9001/UDP"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=11;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="840" y="185" width="170" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Enlace ap -> gw (Ethernet) com rótulo -->
+        <mxCell id="e_ap_gw" value="gw-eth0: 10.0.0.1/16"
+          style="endArrow=none;html=1;strokeWidth=3;strokeColor=#333333;fontSize=9;labelBackgroundColor=#FFFFFF;verticalAlign=bottom;"
+          edge="1" parent="1" source="ap0" target="gw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Enlace gw -> servidor -->
+        <mxCell id="e_gw_srv" value="gw-ethN: 11.0.0.2/16  |  eth0: 11.0.0.10/16"
+          style="endArrow=none;html=1;strokeWidth=3;strokeColor=#333333;fontSize=9;labelBackgroundColor=#FFFFFF;verticalAlign=bottom;"
+          edge="1" parent="1" source="gw" target="srv">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Rótulo backhaul -->
+        <mxCell id="backhaul_lbl" value="backhaul cabeado (substitui a Internet)"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontStyle=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="660" y="140" width="240" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== DEMAIS CLUSTERS ===================== -->
+        <mxCell id="outros" value="Clusters 1..N-1&#10;mesma estrutura, sub-redes 10.i.0.0/16"
+          style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#999999;fillColor=#F5F5F5;fontSize=10;align=center;verticalAlign=middle;fontColor=#666666;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="120" y="430" width="260" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Enlace tracejado outros -> gw -->
+        <mxCell id="e_outros_gw" value="gw-eth_i: 10.i.0.1/16"
+          style="endArrow=none;html=1;dashed=1;strokeWidth=1;strokeColor=#999999;fontSize=9;labelBackgroundColor=#FFFFFF;"
+          edge="1" parent="1" source="outros" target="gw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== SEGMENTO DOS CIENTISTAS ===================== -->
+        <mxCell id="sw" value="sw&#10;OVS"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=11;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="830" y="430" width="100" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cient" value="cient_0, cient_1, cient_2&#10;11.0.1.20-22/24; rota padrão 11.0.1.1"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=11;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="480" y="430" width="280" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Servidor -> sw -->
+        <mxCell id="e_srv_sw" value="eth1: 11.0.1.1/24"
+          style="endArrow=none;html=1;strokeWidth=3;strokeColor=#333333;fontSize=9;labelBackgroundColor=#FFFFFF;verticalAlign=bottom;"
+          edge="1" parent="1" source="srv" target="sw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- sw -> cient -->
+        <mxCell id="e_sw_cient" value="11.0.1.0/24"
+          style="endArrow=none;html=1;strokeWidth=3;strokeColor=#333333;fontSize=9;labelBackgroundColor=#FFFFFF;verticalAlign=bottom;"
+          edge="1" parent="1" source="sw" target="cient">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== LEGENDA ===================== -->
+        <mxCell id="leg_wifi" value=""
+          style="endArrow=none;html=1;dashed=1;dashPattern=1 3;strokeWidth=2;strokeColor=#333333;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="60" y="560" as="sourcePoint" />
+            <mxPoint x="140" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_wifi_lbl" value="enlace sem fio (802.11g)"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;"
+          vertex="1" parent="1">
+          <mxGeometry x="150" y="550" width="200" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg_eth" value=""
+          style="endArrow=none;html=1;strokeWidth=3;strokeColor=#333333;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="560" as="sourcePoint" />
+            <mxPoint x="440" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_eth_lbl" value="enlace Ethernet"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;"
+          vertex="1" parent="1">
+          <mxGeometry x="450" y="550" width="160" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

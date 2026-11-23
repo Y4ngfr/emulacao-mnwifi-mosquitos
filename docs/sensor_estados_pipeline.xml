@@ -1,0 +1,223 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="sensor-estados-pipeline" name="Sensor: máquina de estados e pipeline">
+    <mxGraphModel dx="1700" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1680" pageHeight="1191" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="titulo" value="Sensor: máquina de estados e pipeline (ampliado)" style="text;html=1;fontStyle=1;fontSize=15;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="520" height="26" as="geometry" />
+        </mxCell>
+
+        <mxCell id="nota" value="Cenário fixo durante a run: densidade de mosquitos, ruído e txpower não mudam; apenas o sensor avança entre captura, inferência e stream." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;spacingLeft=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="620" y="10" width="780" height="46" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ini" value="" style="ellipse;html=1;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="30" y="150" width="20" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="conf" value="&lt;b&gt;CONFIG&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;--sensor-id, --cluster, --servidor-ip&lt;br&gt;SSRC = id + 1&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="90" y="118" width="180" height="84" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mqtt" value="&lt;b&gt;MQTT_CONECTAR&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;publish sinal + subscribe iniciar&lt;br&gt;3 tentativas · timeout 30 s · backoff 2 s&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="108" width="220" height="104" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mqttfail" value="&lt;b&gt;FALHA MQTT&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;3 falhas ou timeout&lt;br&gt;exit(1)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="250" width="220" height="76" as="geometry" />
+        </mxCell>
+
+        <mxCell id="udp" value="&lt;b&gt;PREPARAR RTP/UDP&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;socket UDP na porta 9001&lt;br&gt;dataset .npy carregado via mmap&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="118" width="190" height="84" as="geometry" />
+        </mxCell>
+
+        <mxCell id="wait" value="&lt;b&gt;AGUARDANDO_EXPERIMENTO&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;marker impresso no stdout&lt;br&gt;bloqueia em iniciar_experimento.wait()&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="108" width="220" height="104" as="geometry" />
+        </mxCell>
+
+        <mxCell id="inicio" value="&lt;b&gt;INICIANDO_MONITORAMENTO&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;MetricasSensor.salvar()&lt;br&gt;publish no tópico sinal&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="118" width="210" height="84" as="geometry" />
+        </mxCell>
+
+        <mxCell id="loop" value="&lt;b&gt;LOOP PRINCIPAL&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;ambiente 1 s · captura 2,496 s&lt;br&gt;stream RTP contínuo&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1450" y="108" width="190" height="104" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_ini_conf" value="argumentos" style="endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="ini" target="conf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_conf_mqtt" value="conectar" style="endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="conf" target="mqtt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mqtt_fail" value="timeout / erro" style="endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="mqtt" target="mqttfail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mqtt_udp" value="publish + subscribe OK" style="endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="mqtt" target="udp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_udp_wait" value="dataset pronto" style="endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="udp" target="wait">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_wait_inicio" value="on_message: INICIAR_EXPERIMENTO" style="endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="wait" target="inicio">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_inicio_loop" value="evento setado" style="endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="inicio" target="loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="contLoop" value="Detalhe do LOOP PRINCIPAL" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;arcSize=4;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="30" y="370" width="1610" height="250" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_loop_detail" value="" style="endArrow=open;html=1;dashed=1;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.91;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="loop" target="contLoop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l1" value="&lt;b&gt;1. AMBIENTE&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;cenario_ambiente.json a cada 1 s&lt;br&gt;densidade + ruido_audio&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="430" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l2" value="&lt;b&gt;2. CAPTURAR&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;2 janelas de 9984 amostras&lt;br&gt;P(mosquito) = 1 − e&lt;sup&gt;−ρ&lt;/sup&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="430" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l3" value="&lt;b&gt;3. INFERIR&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;ruido gaussiano + CNN&lt;br&gt;MetricasSensor.salvar()&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="510" y="430" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l4" value="&lt;b&gt;4. DECISÃO&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;p_mosquito ≥ p_nao_mosquito?&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="430" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l5" value="&lt;b&gt;5. FILA_ENVIO&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;(audio, classe_verdadeira)&lt;br&gt;FIFO enquanto stream ocupado&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="970" y="430" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l6" value="&lt;b&gt;6. PREPARAR STREAM&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;ffmpeg ADPCM + iterador RTP&lt;br&gt;blocos de 160 amostras&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="430" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l7" value="&lt;b&gt;7. ENVIAR UDP&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;sendto(servidor, 9001)&lt;br&gt;20 ms por pacote RTP&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1440" y="430" width="170" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l8" value="&lt;b&gt;8. FIM DO STREAM&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;StopIteration&lt;br&gt;registrar_envio_audio()&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1440" y="565" width="170" height="42" as="geometry" />
+        </mxCell>
+
+        <mxCell id="el1" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="l1" target="l2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="el2" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="l2" target="l3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="el3" value="sim" style="endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="l3" target="l4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="el4" value="sim" style="endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="l4" target="l5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="el5" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="l5" target="l6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="el6" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="l6" target="l7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="el7" value="marker=1" style="endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="l7" target="l8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="el8" value="não" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="l4" target="l2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="610" />
+              <mxPoint x="370" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="el9" value="limpar stream e aguardar próxima captura" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;strokeWidth=1.5;labelBackgroundColor=#ffffff;fontSize=11;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="l8" target="l2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1400" y="620" />
+              <mxPoint x="415" y="620" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="contMon" value="Detalhe de CAPTURAR + INFERIR (pipeline de inferência)" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;arcSize=4;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="30" y="670" width="1610" height="210" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_l3_mon" value="" style="endArrow=open;html=1;dashed=1;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="l3" target="contMon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p1" value="&lt;b&gt;1. Captura emulada&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;2 janelas do dataset (.npy)&lt;br&gt;P(mosquito) = 1 − e&lt;sup&gt;−ρ&lt;/sup&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="720" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" value="&lt;b&gt;2. Ruído gaussiano&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;SNR do cenário (dB)&lt;br&gt;SNR = 30 → sem ruído&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="310" y="720" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" value="&lt;b&gt;3. Espectrograma Mel&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;512 bandas, FFT 1024&lt;br&gt;hop 256, 8 kHz&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="570" y="720" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" value="&lt;b&gt;4. CNN quantizada&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;model_int8.tflite&lt;br&gt;LiteRT / tflite-runtime&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="830" y="720" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="p5" value="&lt;b&gt;5. Agregação&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;2 janelas por captura&lt;br&gt;média das probabilidades&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="720" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="p6" value="&lt;b&gt;6. Decisão&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;p_mosquito ≥ p_nao_mosquito&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="720" width="250" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ep1" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="p1" target="p2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ep2" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="p2" target="p3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ep3" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="p3" target="p4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ep4" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="p4" target="p5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ep5" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="p5" target="p6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="contStream" value="Detalhe de PREPARAR STREAM + ENVIO RTP" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;arcSize=4;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="30" y="920" width="1610" height="210" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_l6_stream" value="" style="endArrow=open;html=1;dashed=1;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.12;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="l6" target="contStream">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s1" value="&lt;b&gt;1. Comprimir&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;ffmpeg f32le → adpcm_ima_wav&lt;br&gt;saída bruta ADPCM&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="970" width="230" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="&lt;b&gt;2. Blockificar&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;160 amostras/bloco = 20 ms&lt;br&gt;80 bytes ADPCM por bloco&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="350" y="970" width="230" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="&lt;b&gt;3. Cabeçalho RTP&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;PT=96 · SSRC=id+1 &lt;br&gt;extensão: timestamp + classe&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="650" y="970" width="230" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" value="&lt;b&gt;4. Marker bit&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;marker=1 no último bloco&lt;br&gt;seq e timestamp incrementais&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="950" y="970" width="230" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" value="&lt;b&gt;5. Consumo pelo loop&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;sendto 20 ms por pacote&lt;br&gt;ao terminar: salvar métricas&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="970" width="280" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="es1" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="es2" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="es3" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="es4" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="s4" target="s5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

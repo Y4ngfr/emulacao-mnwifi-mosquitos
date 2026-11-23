@@ -1,0 +1,305 @@
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="manual" version="24.0.0">
+  <diagram id="pilha-b" name="(b) Pilha de protocolos">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ===================== TÍTULO ===================== -->
+        <mxCell id="titulo" value="(b) Pilha de protocolos no caminho sensor → servidor"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="620" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== RÓTULOS DAS CAMADAS ===================== -->
+        <!-- Aplicação -->
+        <mxCell id="lbl_app" value="Aplicação"
+          style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=11;fontStyle=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="110" height="30" as="geometry" />
+        </mxCell>
+        <!-- Transporte -->
+        <mxCell id="lbl_trans" value="Transporte"
+          style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=11;fontStyle=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="150" width="110" height="30" as="geometry" />
+        </mxCell>
+        <!-- Rede -->
+        <mxCell id="lbl_rede" value="Rede"
+          style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=11;fontStyle=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="210" width="110" height="30" as="geometry" />
+        </mxCell>
+        <!-- Enlace -->
+        <mxCell id="lbl_enlace" value="Enlace"
+          style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=11;fontStyle=2;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="270" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== COLUNA: SENSOR (x = 220) ===================== -->
+        <!-- Aplicação: duas meias-caixas -->
+        <mxCell id="s_rtp" value="RTP&#10;ADPCM"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#F2D9C4;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="170" y="90" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s_mq" value="MQTT&#10;QoS 1"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#D6E0F0;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="250" y="90" width="80" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Transporte: duas meias-caixas -->
+        <mxCell id="s_udp" value="UDP&#10;dest. 9001"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#F2D9C4;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="170" y="150" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s_tcp" value="TCP&#10;dest. 1883"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#D6E0F0;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="250" y="150" width="80" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Rede -->
+        <mxCell id="s_ip" value="IP&#10;10.i.x.y/16"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="170" y="210" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Enlace -->
+        <mxCell id="s_80211" value="802.11g"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="170" y="270" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== COLUNA: AP (x = 560) ===================== -->
+        <!-- AP: caixa cinza "sem pilha IP" cobrindo Aplicação+Transporte -->
+        <mxCell id="ap_pass" value="sem pilha IP&#10;ponte OVS"
+          style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#666666;fillColor=#E6E6E6;fontSize=10;align=center;verticalAlign=middle;fontColor=#555555;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="500" y="90" width="120" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- AP: rede -->
+        <mxCell id="ap_rede" value=""
+          style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#666666;fillColor=#E6E6E6;fontSize=10;"
+          vertex="1" parent="1">
+          <mxGeometry x="500" y="210" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- AP: enlace -->
+        <mxCell id="ap_80211" value="802.11g ↔ Ethernet"
+          style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#666666;fillColor=#E6E6E6;fontSize=9;align=center;verticalAlign=middle;fontColor=#555555;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="500" y="270" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== COLUNA: gw (x = 780) ===================== -->
+        <!-- gw: caixa cinza "sem aplicação nem transporte" -->
+        <mxCell id="gw_pass" value="sem aplicação&#10;nem transporte"
+          style="rounded=1;whiteSpace=wrap;html=1;dashed=1;strokeColor=#666666;fillColor=#E6E6E6;fontSize=10;align=center;verticalAlign=middle;fontColor=#555555;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="720" y="90" width="120" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- gw: rede -->
+        <mxCell id="gw_ip" value="IP&#10;encaminha"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="720" y="210" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- gw: enlace -->
+        <mxCell id="gw_eth" value="Ethernet"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="720" y="270" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== COLUNA: SERVIDOR (x = 1000) ===================== -->
+        <!-- Aplicação: duas meias-caixas -->
+        <mxCell id="v_mo" value="Mosquitto"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#D6E0F0;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="950" y="90" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="v_sv" value="servidor.py&#10;RTP"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#F2D9C4;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="1030" y="90" width="80" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Transporte: duas meias-caixas -->
+        <mxCell id="v_tcp" value="TCP&#10;:1883"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#D6E0F0;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="950" y="150" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="v_udp" value="UDP&#10;:9001"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#F2D9C4;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="1030" y="150" width="80" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Rede -->
+        <mxCell id="v_ip" value="IP&#10;11.0.0.10/16"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="950" y="210" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Enlace -->
+        <mxCell id="v_eth" value="Ethernet"
+          style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#FFFFFF;fontSize=10;align=center;verticalAlign=middle;arcSize=8;"
+          vertex="1" parent="1">
+          <mxGeometry x="950" y="270" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== ENLACES FÍSICOS ENTRE COLUNAS (camada de enlace) ===================== -->
+        <!-- Sensor -> AP (wifi pontilhado) -->
+        <mxCell id="f_s_ap" value=""
+          style="endArrow=none;html=1;dashed=1;dashPattern=1 3;strokeWidth=2;strokeColor=#333333;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="330" y="295" as="sourcePoint" />
+            <mxPoint x="500" y="295" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- AP -> gw (Ethernet grosso) -->
+        <mxCell id="f_ap_gw" value=""
+          style="endArrow=none;html=1;strokeWidth=3;strokeColor=#333333;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="295" as="sourcePoint" />
+            <mxPoint x="720" y="295" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- gw -> Servidor (Ethernet grosso) -->
+        <mxCell id="f_gw_srv" value=""
+          style="endArrow=none;html=1;strokeWidth=3;strokeColor=#333333;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="840" y="295" as="sourcePoint" />
+            <mxPoint x="950" y="295" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===================== PLANOS FIM A FIM ===================== -->
+        <!-- Controle: MQTT/TCP (azul tracejado, por dentro) -->
+        <mxCell id="plano_ctrl" value="Plano de controle: MQTT sobre TCP (porta 1883)"
+          style="endArrow=classic;html=1;dashed=1;strokeWidth=2;strokeColor=#1F4E9E;fontSize=11;fontColor=#1F4E9E;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" parent="1" source="s_mq" target="v_mo">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="70" />
+              <mxPoint x="990" y="70" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Dados: RTP/UDP (laranja grosso, por fora) -->
+        <mxCell id="plano_dados" value="Plano de dados: RTP sobre UDP (porta 9001)"
+          style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#C75B00;fontSize=11;fontColor=#C75B00;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+          edge="1" parent="1" source="s_rtp" target="v_sv">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="210" y="40" />
+              <mxPoint x="1070" y="40" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===================== CABEÇALHOS DAS COLUNAS ===================== -->
+        <mxCell id="h_sensor" value="Sensor"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="170" y="340" width="160" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="h_ap" value="AP"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="500" y="340" width="120" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="h_gw" value="gw"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="720" y="340" width="120" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="h_srv" value="Servidor"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="950" y="340" width="160" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== LEGENDA ===================== -->
+        <!-- Wifi -->
+        <mxCell id="leg_wifi" value=""
+          style="endArrow=none;html=1;dashed=1;dashPattern=1 3;strokeWidth=2;strokeColor=#333333;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="400" as="sourcePoint" />
+            <mxPoint x="110" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_wifi_lbl" value="enlace sem fio (802.11g)"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;"
+          vertex="1" parent="1">
+          <mxGeometry x="120" y="390" width="180" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Ethernet -->
+        <mxCell id="leg_eth" value=""
+          style="endArrow=none;html=1;strokeWidth=3;strokeColor=#333333;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="400" as="sourcePoint" />
+            <mxPoint x="390" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_eth_lbl" value="enlace Ethernet"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;"
+          vertex="1" parent="1">
+          <mxGeometry x="400" y="390" width="140" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Controle -->
+        <mxCell id="leg_ctrl" value=""
+          style="endArrow=classic;html=1;dashed=1;strokeWidth=2;strokeColor=#1F4E9E;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="400" as="sourcePoint" />
+            <mxPoint x="660" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_ctrl_lbl" value="controle (MQTT/TCP)"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#1F4E9E;"
+          vertex="1" parent="1">
+          <mxGeometry x="670" y="390" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Dados -->
+        <mxCell id="leg_dados" value=""
+          style="endArrow=classic;html=1;strokeWidth=3;strokeColor=#C75B00;"
+          edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="870" y="400" as="sourcePoint" />
+            <mxPoint x="950" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_dados_lbl" value="dados (RTP/UDP)"
+          style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#C75B00;"
+          vertex="1" parent="1">
+          <mxGeometry x="960" y="390" width="160" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,1061 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[run 19/75] Tempo do experimento: 126
+[run 19/75] Tempo do experimento: 127
+[run 19/75] Tempo do experimento: 128
+[run 19/75] Tempo do experimento: 129
+[run 19/75] Tempo do experimento: 130
+[run 19/75] Tempo do experimento: 131
+[run 19/75] Tempo do experimento: 132
+[run 19/75] Tempo do experimento: 133
+[run 19/75] Tempo do experimento: 134
+[run 19/75] Tempo do experimento: 135
+[run 19/75] Tempo do experimento: 136
+[run 19/75] Tempo do experimento: 137
+[run 19/75] Tempo do experimento: 138
+[run 19/75] Tempo do experimento: 139
+[run 19/75] Tempo do experimento: 140
+[run 19/75] Tempo do experimento: 141
+[run 19/75] Tempo do experimento: 142
+[run 19/75] Tempo do experimento: 143
+[run 19/75] Tempo do experimento: 144
+[run 19/75] Tempo do experimento: 145
+[run 19/75] Tempo do experimento: 146
+[run 19/75] Tempo do experimento: 147
+[run 19/75] Tempo do experimento: 148
+[run 19/75] Tempo do experimento: 149
+[run 19/75] Tempo do experimento: 150
+[run 19/75] Experimento Concluído
+[run 19/75]
+[run 19/75] Servidor iniciando inferência final...
+[run 19/75]        DO exploratorio_s50_spa10_ap05_c02_r01_seed100
+[run 20/75] INICIO exploratorio_s75_spa15_ap05_c02_r01_seed100 sensores=75 por_ap=15 aps=5 cenario=2 seed=100
+[run 20/75] Rede gerada em /app/workspace/definicao_rede.json
+[run 20/75] Construindo nos...
+[run 20/75] Nos criados
+[run 20/75]
+[run 20/75] Configurando backhaul...
+[run 20/75] Backhaul configurado
+[run 20/75]
+[run 20/75] Construindo topologia...
+[run 20/75] Topologia construida
+[run 20/75]
+[run 20/75] Iniciando rede...
+[run 20/75] Rede concluida
+[run 20/75]
+[run 20/75] Associando sensores...
+[run 20/75] Associacao concluida
+[run 20/75]
+[run 20/75] Configurando rotas...
+[run 20/75] Rotas configuradas
+[run 20/75]
+[run 20/75] Aguardando conectividade...
+[run 20/75] Traceback (most recent call last):
+[run 20/75]   File "/app/workspace/mininet_ambiente.py", line 669, in <module>
+[run 20/75]     executar_ambiente(
+[run 20/75]   File "/app/workspace/mininet_ambiente.py", line 606, in executar_ambiente
+[run 20/75]     sistema.aguardar_conectividade()
+[run 20/75]   File "/app/workspace/mininet_ambiente.py", line 319, in aguardar_conectividade
+[run 20/75]     raise RuntimeError(
+[run 20/75] RuntimeError: Sensores sem conectividade:
+[run 20/75] sensor_19 alvos=10.1.0.1
+[run 20/75] iw link: Connected to 02:00:00:00:4c:00 (on sensor_19-wlan0)
+[run 20/75]     SSID: cluster_1
+[run 20/75]     freq: 2422.0
+[run 20/75]     RX: 203311 bytes (4519 packets)
+[run 20/75]     TX: 591 bytes (12 packets)
+[run 20/75]     signal: -55 dBm
+[run 20/75]     rx bitrate: 11.0 MBit/s
+[run 20/75]     tx bitrate: 48.0 MBit/s
+[run 20/75]     bss flags: short-slot-time
+[run 20/75]     dtim period: 2
+[run 20/75]     beacon int: 100
+[run 20/75]
+[run 20/75] ip addr: 799: sensor_19-wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state DORMANT group default qlen 1000
+[run 20/75]     link/ether 02:00:00:00:13:00 brd ff:ff:ff:ff:ff:ff
+[run 20/75]     inet 10.1.0.14/16 brd 10.1.255.255 scope global sensor_19-wlan0
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]     inet6 2001::20/64 scope global tentative
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]
+[run 20/75] ip route: default via 10.1.0.1 dev sensor_19-wlan0
+[run 20/75] 10.1.0.0/16 dev sensor_19-wlan0 proto kernel scope link src 10.1.0.14
+[run 20/75]
+[run 20/75] arp: Address                  HWtype  HWaddress           Flags Mask            Iface
+[run 20/75] 10.1.0.1                 ether   56:43:b1:71:b0:ee   C                     sensor_19-wlan0
+[run 20/75]
+[run 20/75]
+[run 20/75] sensor_27 alvos=10.1.0.1
+[run 20/75] iw link: Connected to 02:00:00:00:4c:00 (on sensor_27-wlan0)
+[run 20/75]     SSID: cluster_1
+[run 20/75]     freq: 2422.0
+[run 20/75]     RX: 177528 bytes (3938 packets)
+[run 20/75]     TX: 687 bytes (13 packets)
+[run 20/75]     signal: -56 dBm
+[run 20/75]     rx bitrate: 11.0 MBit/s
+[run 20/75]     tx bitrate: 54.0 MBit/s
+[run 20/75]     bss flags: short-slot-time
+[run 20/75]     dtim period: 2
+[run 20/75]     beacon int: 100
+[run 20/75]
+[run 20/75] ip addr: 807: sensor_27-wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state DORMANT group default qlen 1000
+[run 20/75]     link/ether 02:00:00:00:1b:00 brd ff:ff:ff:ff:ff:ff
+[run 20/75]     inet 10.1.0.22/16 brd 10.1.255.255 scope global sensor_27-wlan0
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]     inet6 2001::28/64 scope global tentative
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]
+[run 20/75] ip route: default via 10.1.0.1 dev sensor_27-wlan0
+[run 20/75] 10.1.0.0/16 dev sensor_27-wlan0 proto kernel scope link src 10.1.0.22
+[run 20/75]
+[run 20/75] arp: Address                  HWtype  HWaddress           Flags Mask            Iface
+[run 20/75] 10.1.0.1                 ether   56:43:b1:71:b0:ee   C                     sensor_27-wlan0
+[run 20/75]
+[run 20/75]
+[run 20/75] sensor_30 alvos=10.2.0.1
+[run 20/75] iw link: Connected to 02:00:00:00:4d:00 (on sensor_30-wlan0)
+[run 20/75]     SSID: cluster_2
+[run 20/75]     freq: 2422.0
+[run 20/75]     RX: 167711 bytes (3719 packets)
+[run 20/75]     TX: 567 bytes (11 packets)
+[run 20/75]     signal: -58 dBm
+[run 20/75]     rx bitrate: 36.0 MBit/s
+[run 20/75]     tx bitrate: 9.0 MBit/s
+[run 20/75]     bss flags: short-slot-time
+[run 20/75]     dtim period: 2
+[run 20/75]     beacon int: 100
+[run 20/75]
+[run 20/75] ip addr: 810: sensor_30-wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state DORMANT group default qlen 1000
+[run 20/75]     link/ether 02:00:00:00:1e:00 brd ff:ff:ff:ff:ff:ff
+[run 20/75]     inet 10.2.0.10/16 brd 10.2.255.255 scope global sensor_30-wlan0
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]     inet6 2001::31/64 scope global tentative
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]
+[run 20/75] ip route: default via 10.2.0.1 dev sensor_30-wlan0
+[run 20/75] 10.2.0.0/16 dev sensor_30-wlan0 proto kernel scope link src 10.2.0.10
+[run 20/75]
+[run 20/75] arp: Address                  HWtype  HWaddress           Flags Mask            Iface
+[run 20/75] 10.2.0.1                 ether   5e:2d:f6:e1:26:fa   C                     sensor_30-wlan0
+[run 20/75]
+[run 20/75]
+[run 20/75] sensor_34 alvos=10.2.0.1
+[run 20/75] iw link: Connected to 02:00:00:00:4d:00 (on sensor_34-wlan0)
+[run 20/75]     SSID: cluster_2
+[run 20/75]     freq: 2422.0
+[run 20/75]     RX: 154866 bytes (3430 packets)
+[run 20/75]     TX: 627 bytes (12 packets)
+[run 20/75]     signal: -57 dBm
+[run 20/75]     rx bitrate: 48.0 MBit/s
+[run 20/75]     tx bitrate: 11.0 MBit/s
+[run 20/75]     bss flags: short-slot-time
+[run 20/75]     dtim period: 2
+[run 20/75]     beacon int: 100
+[run 20/75]
+[run 20/75] ip addr: 814: sensor_34-wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state DORMANT group default qlen 1000
+[run 20/75]     link/ether 02:00:00:00:22:00 brd ff:ff:ff:ff:ff:ff
+[run 20/75]     inet 10.2.0.14/16 brd 10.2.255.255 scope global sensor_34-wlan0
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]     inet6 2001::35/64 scope global tentative
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]
+[run 20/75] ip route: default via 10.2.0.1 dev sensor_34-wlan0
+[run 20/75] 10.2.0.0/16 dev sensor_34-wlan0 proto kernel scope link src 10.2.0.14
+[run 20/75]
+[run 20/75] arp: Address                  HWtype  HWaddress           Flags Mask            Iface
+[run 20/75] 10.2.0.1                 ether   5e:2d:f6:e1:26:fa   C                     sensor_34-wlan0
+[run 20/75]
+[run 20/75]
+[run 20/75] sensor_36 alvos=10.2.0.1
+[run 20/75] iw link: Connected to 02:00:00:00:4d:00 (on sensor_36-wlan0)
+[run 20/75]     SSID: cluster_2
+[run 20/75]     freq: 2422.0
+[run 20/75]     RX: 148309 bytes (3283 packets)
+[run 20/75]     TX: 543 bytes (10 packets)
+[run 20/75]     signal: -57 dBm
+[run 20/75]     rx bitrate: 36.0 MBit/s
+[run 20/75]     tx bitrate: 36.0 MBit/s
+[run 20/75]     bss flags: short-slot-time
+[run 20/75]     dtim period: 2
+[run 20/75]     beacon int: 100
+[run 20/75]
+[run 20/75] ip addr: 816: sensor_36-wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state DORMANT group default qlen 1000
+[run 20/75]     link/ether 02:00:00:00:24:00 brd ff:ff:ff:ff:ff:ff
+[run 20/75]     inet 10.2.0.16/16 brd 10.2.255.255 scope global sensor_36-wlan0
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]     inet6 2001::37/64 scope global tentative
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]
+[run 20/75] ip route: default via 10.2.0.1 dev sensor_36-wlan0
+[run 20/75] 10.2.0.0/16 dev sensor_36-wlan0 proto kernel scope link src 10.2.0.16
+[run 20/75]
+[run 20/75] arp: Address                  HWtype  HWaddress           Flags Mask            Iface
+[run 20/75] 10.2.0.1                 ether   5e:2d:f6:e1:26:fa   C                     sensor_36-wlan0
+[run 20/75]
+[run 20/75]
+[run 20/75] sensor_40 alvos=10.2.0.1
+[run 20/75] iw link: Connected to 02:00:00:00:4d:00 (on sensor_40-wlan0)
+[run 20/75]     SSID: cluster_2
+[run 20/75]     freq: 2422.0
+[run 20/75]     RX: 134425 bytes (2971 packets)
+[run 20/75]     TX: 543 bytes (10 packets)
+[run 20/75]     signal: -58 dBm
+[run 20/75]     rx bitrate: 36.0 MBit/s
+[run 20/75]     tx bitrate: 36.0 MBit/s
+[run 20/75]     bss flags: short-slot-time
+[run 20/75]     dtim period: 2
+[run 20/75]     beacon int: 100
+[run 20/75]
+[run 20/75] ip addr: 820: sensor_40-wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state DORMANT group default qlen 1000
+[run 20/75]     link/ether 02:00:00:00:28:00 brd ff:ff:ff:ff:ff:ff
+[run 20/75]     inet 10.2.0.20/16 brd 10.2.255.255 scope global sensor_40-wlan0
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]     inet6 2001::41/64 scope global tentative
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]
+[run 20/75] ip route: default via 10.2.0.1 dev sensor_40-wlan0
+[run 20/75] 10.2.0.0/16 dev sensor_40-wlan0 proto kernel scope link src 10.2.0.20
+[run 20/75]
+[run 20/75] arp: Address                  HWtype  HWaddress           Flags Mask            Iface
+[run 20/75] 10.2.0.1                 ether   5e:2d:f6:e1:26:fa   C                     sensor_40-wlan0
+[run 20/75]
+[run 20/75]
+[run 20/75] sensor_41 alvos=10.2.0.1
+[run 20/75] iw link: Connected to 02:00:00:00:4d:00 (on sensor_41-wlan0)
+[run 20/75]     SSID: cluster_2
+[run 20/75]     freq: 2422.0
+[run 20/75]     RX: 131221 bytes (2899 packets)
+[run 20/75]     TX: 543 bytes (10 packets)
+[run 20/75]     signal: -54 dBm
+[run 20/75]     rx bitrate: 36.0 MBit/s
+[run 20/75]     tx bitrate: 36.0 MBit/s
+[run 20/75]     bss flags: short-slot-time
+[run 20/75]     dtim period: 2
+[run 20/75]     beacon int: 100
+[run 20/75]
+[run 20/75] ip addr: 821: sensor_41-wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state DORMANT group default qlen 1000
+[run 20/75]     link/ether 02:00:00:00:29:00 brd ff:ff:ff:ff:ff:ff
+[run 20/75]     inet 10.2.0.21/16 brd 10.2.255.255 scope global sensor_41-wlan0
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]     inet6 2001::42/64 scope global tentative
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]
+[run 20/75] ip route: default via 10.2.0.1 dev sensor_41-wlan0
+[run 20/75] 10.2.0.0/16 dev sensor_41-wlan0 proto kernel scope link src 10.2.0.21
+[run 20/75]
+[run 20/75] arp: Address                  HWtype  HWaddress           Flags Mask            Iface
+[run 20/75] 10.2.0.1                 ether   5e:2d:f6:e1:26:fa   C                     sensor_41-wlan0
+[run 20/75]
+[run 20/75]
+[run 20/75] sensor_42 alvos=10.2.0.1
+[run 20/75] iw link: Connected to 02:00:00:00:4d:00 (on sensor_42-wlan0)
+[run 20/75]     SSID: cluster_2
+[run 20/75]     freq: 2422.0
+[run 20/75]     RX: 127928 bytes (2825 packets)
+[run 20/75]     TX: 543 bytes (10 packets)
+[run 20/75]     signal: -52 dBm
+[run 20/75]     rx bitrate: 36.0 MBit/s
+[run 20/75]     tx bitrate: 36.0 MBit/s
+[run 20/75]     bss flags: short-slot-time
+[run 20/75]     dtim period: 2
+[run 20/75]     beacon int: 100
+[run 20/75]
+[run 20/75] ip addr: 822: sensor_42-wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state DORMANT group default qlen 1000
+[run 20/75]     link/ether 02:00:00:00:2a:00 brd ff:ff:ff:ff:ff:ff
+[run 20/75]     inet 10.2.0.22/16 brd 10.2.255.255 scope global sensor_42-wlan0
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]     inet6 2001::43/64 scope global tentative
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]
+[run 20/75] ip route: default via 10.2.0.1 dev sensor_42-wlan0
+[run 20/75] 10.2.0.0/16 dev sensor_42-wlan0 proto kernel scope link src 10.2.0.22
+[run 20/75]
+[run 20/75] arp: Address                  HWtype  HWaddress           Flags Mask            Iface
+[run 20/75] 10.2.0.1                 ether   5e:2d:f6:e1:26:fa   C                     sensor_42-wlan0
+[run 20/75]
+[run 20/75]
+[run 20/75] sensor_44 alvos=10.2.0.1
+[run 20/75] iw link: Connected to 02:00:00:00:4d:00 (on sensor_44-wlan0)
+[run 20/75]     SSID: cluster_2
+[run 20/75]     freq: 2422.0
+[run 20/75]     RX: 121549 bytes (2682 packets)
+[run 20/75]     TX: 483 bytes (9 packets)
+[run 20/75]     signal: -53 dBm
+[run 20/75]     rx bitrate: 24.0 MBit/s
+[run 20/75]     tx bitrate: 6.0 MBit/s
+[run 20/75]     bss flags: short-slot-time
+[run 20/75]     dtim period: 2
+[run 20/75]     beacon int: 100
+[run 20/75]
+[run 20/75] ip addr: 824: sensor_44-wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state DORMANT group default qlen 1000
+[run 20/75]     link/ether 02:00:00:00:2c:00 brd ff:ff:ff:ff:ff:ff
+[run 20/75]     inet 10.2.0.24/16 brd 10.2.255.255 scope global sensor_44-wlan0
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]     inet6 2001::45/64 scope global tentative
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]
+[run 20/75] ip route: default via 10.2.0.1 dev sensor_44-wlan0
+[run 20/75] 10.2.0.0/16 dev sensor_44-wlan0 proto kernel scope link src 10.2.0.24
+[run 20/75]
+[run 20/75] arp: Address                  HWtype  HWaddress           Flags Mask            Iface
+[run 20/75] 10.2.0.1                 ether   5e:2d:f6:e1:26:fa   C                     sensor_44-wlan0
+[run 20/75]
+[run 20/75]
+[run 20/75] sensor_45 alvos=10.3.0.1
+[run 20/75] iw link: Connected to 02:00:00:00:4e:00 (on sensor_45-wlan0)
+[run 20/75]     SSID: cluster_3
+[run 20/75]     freq: 2422.0
+[run 20/75]     RX: 118239 bytes (2608 packets)
+[run 20/75]     TX: 483 bytes (9 packets)
+[run 20/75]     signal: -59 dBm
+[run 20/75]     rx bitrate: 24.0 MBit/s
+[run 20/75]     tx bitrate: 6.0 MBit/s
+[run 20/75]     bss flags: short-slot-time
+[run 20/75]     dtim period: 2
+[run 20/75]     beacon int: 100
+[run 20/75]
+[run 20/75] ip addr: 825: sensor_45-wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state DORMANT group default qlen 1000
+[run 20/75]     link/ether 02:00:00:00:2d:00 brd ff:ff:ff:ff:ff:ff
+[run 20/75]     inet 10.3.0.10/16 brd 10.3.255.255 scope global sensor_45-wlan0
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]     inet6 2001::46/64 scope global tentative
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]
+[run 20/75] ip route: default via 10.3.0.1 dev sensor_45-wlan0
+[run 20/75] 10.3.0.0/16 dev sensor_45-wlan0 proto kernel scope link src 10.3.0.10
+[run 20/75]
+[run 20/75] arp: Address                  HWtype  HWaddress           Flags Mask            Iface
+[run 20/75] 10.3.0.1                 ether   0a:f2:01:02:29:c9   C                     sensor_45-wlan0
+[run 20/75]
+[run 20/75]
+[run 20/75] sensor_71 alvos=10.4.0.1
+[run 20/75] iw link: Connected to 02:00:00:00:4f:00 (on sensor_71-wlan0)
+[run 20/75]     SSID: cluster_4
+[run 20/75]     freq: 2422.0
+[run 20/75]     RX: 34062 bytes (716 packets)
+[run 20/75]     TX: 411 bytes (6 packets)
+[run 20/75]     signal: -58 dBm
+[run 20/75]     rx bitrate: 6.0 MBit/s
+[run 20/75]     tx bitrate: 9.0 MBit/s
+[run 20/75]     bss flags: short-slot-time
+[run 20/75]     dtim period: 2
+[run 20/75]     beacon int: 100
+[run 20/75]
+[run 20/75] ip addr: 851: sensor_71-wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state DORMANT group default qlen 1000
+[run 20/75]     link/ether 02:00:00:00:47:00 brd ff:ff:ff:ff:ff:ff
+[run 20/75]     inet 10.4.0.21/16 brd 10.4.255.255 scope global sensor_71-wlan0
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]     inet6 2001::72/64 scope global tentative
+[run 20/75]        valid_lft forever preferred_lft forever
+[run 20/75]
+[run 20/75] ip route: default via 10.4.0.1 dev sensor_71-wlan0
+[run 20/75] 10.4.0.0/16 dev sensor_71-wlan0 proto kernel scope link src 10.4.0.21
+[run 20/75]
+[run 20/75] arp: Address                  HWtype  HWaddress           Flags Mask            Iface
+[run 20/75] 10.4.0.1                 ether   d2:2c:fb:09:5e:32   C                     sensor_71-wlan0
+[run 20/75]
+[run 20/75]
+[run 20/75] ap0 hostapd status: state=ENABLED
+[run 20/75] phy=mn609474p75s75
+[run 20/75] freq=2422
+[run 20/75] num_sta_non_erp=0
+[run 20/75] num_sta_no_short_slot_time=0
+[run 20/75] num_sta_no_short_preamble=0
+[run 20/75] olbc=0
+[run 20/75] num_sta_ht_no_gf=0
+[run 20/75] num_sta_no_ht=15
+[run 20/75] num_sta_ht_20_mhz=0
+[run 20/75] num_sta_ht40_intolerant=0
+[run 20/75] olbc_ht=1
+[run 20/75] ht_op_mode=0x0
+[run 20/75] hw_mode=g
+[run 20/75] cac_time_seconds=0
+[run 20/75] cac_time_left_seconds=N/A
+[run 20/75] channel=3
+[run 20/75] edmg_enable=0
+[run 20/75] edmg_channel=0
+[run 20/75] secondary_channel=0
+[run 20/75] ieee80211n=0
+[run 20/75] ieee80211ac=0
+[run 20/75] ieee80211ax=0
+[run 20/75] ieee80211be=0
+[run 20/75] beacon_int=100
+[run 20/75] dtim_period=2
+[run 20/75] supported_rates=02 04 0b 16 0c 12 18 24 30 48 60 6c
+[run 20/75] max_txpower=20
+[run 20/75] bss[0]=ap0-wlan1
+[run 20/75] bssid[0]=02:00:00:00:4b:00
+[run 20/75] ssid[0]=cluster_0
+[run 20/75] num_sta[0]=15
+[run 20/75]
+[run 20/75] ap0 ovs-vsctl show: 8f0b0576-4cde-4800-acd4-0eaea4a2019f
+[run 20/75]     Bridge ap4
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap4-eth1
+[run 20/75]             Interface ap4-eth1
+[run 20/75]         Port ap4
+[run 20/75]             Interface ap4
+[run 20/75]                 type: internal
+[run 20/75]         Port ap4-wlan1
+[run 20/75]             Interface ap4-wlan1
+[run 20/75]     Bridge ap0
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap0-wlan1
+[run 20/75]             Interface ap0-wlan1
+[run 20/75]         Port ap0
+[run 20/75]             Interface ap0
+[run 20/75]                 type: internal
+[run 20/75]         Port ap0-eth1
+[run 20/75]             Interface ap0-eth1
+[run 20/75]     Bridge ap1
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap1
+[run 20/75]             Interface ap1
+[run 20/75]                 type: internal
+[run 20/75]         Port ap1-eth1
+[run 20/75]             Interface ap1-eth1
+[run 20/75]         Port ap1-wlan1
+[run 20/75]             Interface ap1-wlan1
+[run 20/75]     Bridge ap2
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap2
+[run 20/75]             Interface ap2
+[run 20/75]                 type: internal
+[run 20/75]         Port ap2-eth1
+[run 20/75]             Interface ap2-eth1
+[run 20/75]         Port ap2-wlan1
+[run 20/75]             Interface ap2-wlan1
+[run 20/75]     Bridge ap3
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap3-wlan1
+[run 20/75]             Interface ap3-wlan1
+[run 20/75]         Port ap3
+[run 20/75]             Interface ap3
+[run 20/75]                 type: internal
+[run 20/75]         Port ap3-eth1
+[run 20/75]             Interface ap3-eth1
+[run 20/75]     Bridge sw
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port sw-eth3
+[run 20/75]             Interface sw-eth3
+[run 20/75]         Port sw-eth2
+[run 20/75]             Interface sw-eth2
+[run 20/75]         Port sw-eth1
+[run 20/75]             Interface sw-eth1
+[run 20/75]         Port sw
+[run 20/75]             Interface sw
+[run 20/75]                 type: internal
+[run 20/75]         Port sw-eth4
+[run 20/75]             Interface sw-eth4
+[run 20/75]     ovs_version: "3.5.0"
+[run 20/75]
+[run 20/75] ap0 ovs-ofctl dump-ports: OFPST_PORT reply (xid=0x2): 3 ports
+[run 20/75]   port  "ap0-eth1": rx pkts=72, bytes=5136, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=109, bytes=10120, drop=0, errs=0, coll=0
+[run 20/75]   port LOCAL: rx pkts=15, bytes=420, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=21, bytes=2651, drop=0, errs=0, coll=0
+[run 20/75]   port  "ap0-wlan1": rx pkts=60, bytes=4200, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=95, bytes=9101, drop=0, errs=0, coll=0
+[run 20/75]
+[run 20/75] ap0 ovs-ofctl dump-flows:  cookie=0x0, duration=23.365s, table=0, n_packets=140, n_bytes=10961, priority=0 actions=NORMAL
+[run 20/75]
+[run 20/75]
+[run 20/75] ap1 hostapd status: state=ENABLED
+[run 20/75] phy=mn609474p76s76
+[run 20/75] freq=2422
+[run 20/75] num_sta_non_erp=0
+[run 20/75] num_sta_no_short_slot_time=0
+[run 20/75] num_sta_no_short_preamble=0
+[run 20/75] olbc=0
+[run 20/75] num_sta_ht_no_gf=0
+[run 20/75] num_sta_no_ht=15
+[run 20/75] num_sta_ht_20_mhz=0
+[run 20/75] num_sta_ht40_intolerant=0
+[run 20/75] olbc_ht=1
+[run 20/75] ht_op_mode=0x0
+[run 20/75] hw_mode=g
+[run 20/75] cac_time_seconds=0
+[run 20/75] cac_time_left_seconds=N/A
+[run 20/75] channel=3
+[run 20/75] edmg_enable=0
+[run 20/75] edmg_channel=0
+[run 20/75] secondary_channel=0
+[run 20/75] ieee80211n=0
+[run 20/75] ieee80211ac=0
+[run 20/75] ieee80211ax=0
+[run 20/75] ieee80211be=0
+[run 20/75] beacon_int=100
+[run 20/75] dtim_period=2
+[run 20/75] supported_rates=02 04 0b 16 0c 12 18 24 30 48 60 6c
+[run 20/75] max_txpower=20
+[run 20/75] bss[0]=ap1-wlan1
+[run 20/75] bssid[0]=02:00:00:00:4c:00
+[run 20/75] ssid[0]=cluster_1
+[run 20/75] num_sta[0]=15
+[run 20/75]
+[run 20/75] ap1 ovs-vsctl show: 8f0b0576-4cde-4800-acd4-0eaea4a2019f
+[run 20/75]     Bridge ap4
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap4-eth1
+[run 20/75]             Interface ap4-eth1
+[run 20/75]         Port ap4
+[run 20/75]             Interface ap4
+[run 20/75]                 type: internal
+[run 20/75]         Port ap4-wlan1
+[run 20/75]             Interface ap4-wlan1
+[run 20/75]     Bridge ap0
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap0-wlan1
+[run 20/75]             Interface ap0-wlan1
+[run 20/75]         Port ap0
+[run 20/75]             Interface ap0
+[run 20/75]                 type: internal
+[run 20/75]         Port ap0-eth1
+[run 20/75]             Interface ap0-eth1
+[run 20/75]     Bridge ap1
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap1
+[run 20/75]             Interface ap1
+[run 20/75]                 type: internal
+[run 20/75]         Port ap1-eth1
+[run 20/75]             Interface ap1-eth1
+[run 20/75]         Port ap1-wlan1
+[run 20/75]             Interface ap1-wlan1
+[run 20/75]     Bridge ap2
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap2
+[run 20/75]             Interface ap2
+[run 20/75]                 type: internal
+[run 20/75]         Port ap2-eth1
+[run 20/75]             Interface ap2-eth1
+[run 20/75]         Port ap2-wlan1
+[run 20/75]             Interface ap2-wlan1
+[run 20/75]     Bridge ap3
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap3-wlan1
+[run 20/75]             Interface ap3-wlan1
+[run 20/75]         Port ap3
+[run 20/75]             Interface ap3
+[run 20/75]                 type: internal
+[run 20/75]         Port ap3-eth1
+[run 20/75]             Interface ap3-eth1
+[run 20/75]     Bridge sw
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port sw-eth3
+[run 20/75]             Interface sw-eth3
+[run 20/75]         Port sw-eth2
+[run 20/75]             Interface sw-eth2
+[run 20/75]         Port sw-eth1
+[run 20/75]             Interface sw-eth1
+[run 20/75]         Port sw
+[run 20/75]             Interface sw
+[run 20/75]                 type: internal
+[run 20/75]         Port sw-eth4
+[run 20/75]             Interface sw-eth4
+[run 20/75]     ovs_version: "3.5.0"
+[run 20/75]
+[run 20/75] ap1 ovs-ofctl dump-ports: OFPST_PORT reply (xid=0x2): 3 ports
+[run 20/75]   port  "ap1-eth1": rx pkts=74, bytes=5220, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=111, bytes=10204, drop=0, errs=0, coll=0
+[run 20/75]   port LOCAL: rx pkts=17, bytes=476, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=21, bytes=2651, drop=0, errs=0, coll=0
+[run 20/75]   port  "ap1-wlan1": rx pkts=62, bytes=4284, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=99, bytes=9341, drop=0, errs=0, coll=0
+[run 20/75]
+[run 20/75] ap1 ovs-ofctl dump-flows:  cookie=0x0, duration=23.324s, table=0, n_packets=144, n_bytes=11129, priority=0 actions=NORMAL
+[run 20/75]
+[run 20/75]
+[run 20/75] ap2 hostapd status: state=ENABLED
+[run 20/75] phy=mn609474p77s77
+[run 20/75] freq=2422
+[run 20/75] num_sta_non_erp=0
+[run 20/75] num_sta_no_short_slot_time=0
+[run 20/75] num_sta_no_short_preamble=0
+[run 20/75] olbc=0
+[run 20/75] num_sta_ht_no_gf=0
+[run 20/75] num_sta_no_ht=15
+[run 20/75] num_sta_ht_20_mhz=0
+[run 20/75] num_sta_ht40_intolerant=0
+[run 20/75] olbc_ht=1
+[run 20/75] ht_op_mode=0x0
+[run 20/75] hw_mode=g
+[run 20/75] cac_time_seconds=0
+[run 20/75] cac_time_left_seconds=N/A
+[run 20/75] channel=3
+[run 20/75] edmg_enable=0
+[run 20/75] edmg_channel=0
+[run 20/75] secondary_channel=0
+[run 20/75] ieee80211n=0
+[run 20/75] ieee80211ac=0
+[run 20/75] ieee80211ax=0
+[run 20/75] ieee80211be=0
+[run 20/75] beacon_int=100
+[run 20/75] dtim_period=2
+[run 20/75] supported_rates=02 04 0b 16 0c 12 18 24 30 48 60 6c
+[run 20/75] max_txpower=20
+[run 20/75] bss[0]=ap2-wlan1
+[run 20/75] bssid[0]=02:00:00:00:4d:00
+[run 20/75] ssid[0]=cluster_2
+[run 20/75] num_sta[0]=15
+[run 20/75]
+[run 20/75] ap2 ovs-vsctl show: 8f0b0576-4cde-4800-acd4-0eaea4a2019f
+[run 20/75]     Bridge ap4
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap4-eth1
+[run 20/75]             Interface ap4-eth1
+[run 20/75]         Port ap4
+[run 20/75]             Interface ap4
+[run 20/75]                 type: internal
+[run 20/75]         Port ap4-wlan1
+[run 20/75]             Interface ap4-wlan1
+[run 20/75]     Bridge ap0
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap0-wlan1
+[run 20/75]             Interface ap0-wlan1
+[run 20/75]         Port ap0
+[run 20/75]             Interface ap0
+[run 20/75]                 type: internal
+[run 20/75]         Port ap0-eth1
+[run 20/75]             Interface ap0-eth1
+[run 20/75]     Bridge ap1
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap1
+[run 20/75]             Interface ap1
+[run 20/75]                 type: internal
+[run 20/75]         Port ap1-eth1
+[run 20/75]             Interface ap1-eth1
+[run 20/75]         Port ap1-wlan1
+[run 20/75]             Interface ap1-wlan1
+[run 20/75]     Bridge ap2
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap2
+[run 20/75]             Interface ap2
+[run 20/75]                 type: internal
+[run 20/75]         Port ap2-eth1
+[run 20/75]             Interface ap2-eth1
+[run 20/75]         Port ap2-wlan1
+[run 20/75]             Interface ap2-wlan1
+[run 20/75]     Bridge ap3
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap3-wlan1
+[run 20/75]             Interface ap3-wlan1
+[run 20/75]         Port ap3
+[run 20/75]             Interface ap3
+[run 20/75]                 type: internal
+[run 20/75]         Port ap3-eth1
+[run 20/75]             Interface ap3-eth1
+[run 20/75]     Bridge sw
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port sw-eth3
+[run 20/75]             Interface sw-eth3
+[run 20/75]         Port sw-eth2
+[run 20/75]             Interface sw-eth2
+[run 20/75]         Port sw-eth1
+[run 20/75]             Interface sw-eth1
+[run 20/75]         Port sw
+[run 20/75]             Interface sw
+[run 20/75]                 type: internal
+[run 20/75]         Port sw-eth4
+[run 20/75]             Interface sw-eth4
+[run 20/75]     ovs_version: "3.5.0"
+[run 20/75]
+[run 20/75] ap2 ovs-ofctl dump-ports: OFPST_PORT reply (xid=0x2): 3 ports
+[run 20/75]   port  "ap2-eth1": rx pkts=65, bytes=4450, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=101, bytes=9392, drop=0, errs=0, coll=0
+[run 20/75]   port LOCAL: rx pkts=15, bytes=420, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=21, bytes=2651, drop=0, errs=0, coll=0
+[run 20/75]   port  "ap2-wlan1": rx pkts=52, bytes=3472, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=88, bytes=8289, drop=0, errs=0, coll=0
+[run 20/75]
+[run 20/75] ap2 ovs-ofctl dump-flows:  cookie=0x0, duration=23.294s, table=0, n_packets=125, n_bytes=9547, priority=0 actions=NORMAL
+[run 20/75]
+[run 20/75]
+[run 20/75] ap3 hostapd status: state=ENABLED
+[run 20/75] phy=mn609474p78s78
+[run 20/75] freq=2422
+[run 20/75] num_sta_non_erp=0
+[run 20/75] num_sta_no_short_slot_time=0
+[run 20/75] num_sta_no_short_preamble=0
+[run 20/75] olbc=0
+[run 20/75] num_sta_ht_no_gf=0
+[run 20/75] num_sta_no_ht=15
+[run 20/75] num_sta_ht_20_mhz=0
+[run 20/75] num_sta_ht40_intolerant=0
+[run 20/75] olbc_ht=1
+[run 20/75] ht_op_mode=0x0
+[run 20/75] hw_mode=g
+[run 20/75] cac_time_seconds=0
+[run 20/75] cac_time_left_seconds=N/A
+[run 20/75] channel=3
+[run 20/75] edmg_enable=0
+[run 20/75] edmg_channel=0
+[run 20/75] secondary_channel=0
+[run 20/75] ieee80211n=0
+[run 20/75] ieee80211ac=0
+[run 20/75] ieee80211ax=0
+[run 20/75] ieee80211be=0
+[run 20/75] beacon_int=100
+[run 20/75] dtim_period=2
+[run 20/75] supported_rates=02 04 0b 16 0c 12 18 24 30 48 60 6c
+[run 20/75] max_txpower=20
+[run 20/75] bss[0]=ap3-wlan1
+[run 20/75] bssid[0]=02:00:00:00:4e:00
+[run 20/75] ssid[0]=cluster_3
+[run 20/75] num_sta[0]=15
+[run 20/75]
+[run 20/75] ap3 ovs-vsctl show: 8f0b0576-4cde-4800-acd4-0eaea4a2019f
+[run 20/75]     Bridge ap4
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap4-eth1
+[run 20/75]             Interface ap4-eth1
+[run 20/75]         Port ap4
+[run 20/75]             Interface ap4
+[run 20/75]                 type: internal
+[run 20/75]         Port ap4-wlan1
+[run 20/75]             Interface ap4-wlan1
+[run 20/75]     Bridge ap0
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap0-wlan1
+[run 20/75]             Interface ap0-wlan1
+[run 20/75]         Port ap0
+[run 20/75]             Interface ap0
+[run 20/75]                 type: internal
+[run 20/75]         Port ap0-eth1
+[run 20/75]             Interface ap0-eth1
+[run 20/75]     Bridge ap1
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap1
+[run 20/75]             Interface ap1
+[run 20/75]                 type: internal
+[run 20/75]         Port ap1-eth1
+[run 20/75]             Interface ap1-eth1
+[run 20/75]         Port ap1-wlan1
+[run 20/75]             Interface ap1-wlan1
+[run 20/75]     Bridge ap2
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap2
+[run 20/75]             Interface ap2
+[run 20/75]                 type: internal
+[run 20/75]         Port ap2-eth1
+[run 20/75]             Interface ap2-eth1
+[run 20/75]         Port ap2-wlan1
+[run 20/75]             Interface ap2-wlan1
+[run 20/75]     Bridge ap3
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap3-wlan1
+[run 20/75]             Interface ap3-wlan1
+[run 20/75]         Port ap3
+[run 20/75]             Interface ap3
+[run 20/75]                 type: internal
+[run 20/75]         Port ap3-eth1
+[run 20/75]             Interface ap3-eth1
+[run 20/75]     Bridge sw
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port sw-eth3
+[run 20/75]             Interface sw-eth3
+[run 20/75]         Port sw-eth2
+[run 20/75]             Interface sw-eth2
+[run 20/75]         Port sw-eth1
+[run 20/75]             Interface sw-eth1
+[run 20/75]         Port sw
+[run 20/75]             Interface sw
+[run 20/75]                 type: internal
+[run 20/75]         Port sw-eth4
+[run 20/75]             Interface sw-eth4
+[run 20/75]     ovs_version: "3.5.0"
+[run 20/75]
+[run 20/75] ap3 ovs-ofctl dump-ports: OFPST_PORT reply (xid=0x2): 3 ports
+[run 20/75]   port  "ap3-eth1": rx pkts=56, bytes=4408, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=93, bytes=9392, drop=0, errs=0, coll=0
+[run 20/75]   port LOCAL: rx pkts=15, bytes=420, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=21, bytes=2651, drop=0, errs=0, coll=0
+[run 20/75]   port  "ap3-wlan1": rx pkts=44, bytes=3472, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=79, bytes=8085, drop=0, errs=0, coll=0
+[run 20/75]
+[run 20/75] ap3 ovs-ofctl dump-flows:  cookie=0x0, duration=23.269s, table=0, n_packets=108, n_bytes=9505, priority=0 actions=NORMAL
+[run 20/75]
+[run 20/75]
+[run 20/75] ap4 hostapd status: state=ENABLED
+[run 20/75] phy=mn609474p79s79
+[run 20/75] freq=2422
+[run 20/75] num_sta_non_erp=0
+[run 20/75] num_sta_no_short_slot_time=0
+[run 20/75] num_sta_no_short_preamble=0
+[run 20/75] olbc=0
+[run 20/75] num_sta_ht_no_gf=0
+[run 20/75] num_sta_no_ht=15
+[run 20/75] num_sta_ht_20_mhz=0
+[run 20/75] num_sta_ht40_intolerant=0
+[run 20/75] olbc_ht=1
+[run 20/75] ht_op_mode=0x0
+[run 20/75] hw_mode=g
+[run 20/75] cac_time_seconds=0
+[run 20/75] cac_time_left_seconds=N/A
+[run 20/75] channel=3
+[run 20/75] edmg_enable=0
+[run 20/75] edmg_channel=0
+[run 20/75] secondary_channel=0
+[run 20/75] ieee80211n=0
+[run 20/75] ieee80211ac=0
+[run 20/75] ieee80211ax=0
+[run 20/75] ieee80211be=0
+[run 20/75] beacon_int=100
+[run 20/75] dtim_period=2
+[run 20/75] supported_rates=02 04 0b 16 0c 12 18 24 30 48 60 6c
+[run 20/75] max_txpower=20
+[run 20/75] bss[0]=ap4-wlan1
+[run 20/75] bssid[0]=02:00:00:00:4f:00
+[run 20/75] ssid[0]=cluster_4
+[run 20/75] num_sta[0]=15
+[run 20/75]
+[run 20/75] ap4 ovs-vsctl show: 8f0b0576-4cde-4800-acd4-0eaea4a2019f
+[run 20/75]     Bridge ap4
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap4-eth1
+[run 20/75]             Interface ap4-eth1
+[run 20/75]         Port ap4
+[run 20/75]             Interface ap4
+[run 20/75]                 type: internal
+[run 20/75]         Port ap4-wlan1
+[run 20/75]             Interface ap4-wlan1
+[run 20/75]     Bridge ap0
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap0-wlan1
+[run 20/75]             Interface ap0-wlan1
+[run 20/75]         Port ap0
+[run 20/75]             Interface ap0
+[run 20/75]                 type: internal
+[run 20/75]         Port ap0-eth1
+[run 20/75]             Interface ap0-eth1
+[run 20/75]     Bridge ap1
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap1
+[run 20/75]             Interface ap1
+[run 20/75]                 type: internal
+[run 20/75]         Port ap1-eth1
+[run 20/75]             Interface ap1-eth1
+[run 20/75]         Port ap1-wlan1
+[run 20/75]             Interface ap1-wlan1
+[run 20/75]     Bridge ap2
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap2
+[run 20/75]             Interface ap2
+[run 20/75]                 type: internal
+[run 20/75]         Port ap2-eth1
+[run 20/75]             Interface ap2-eth1
+[run 20/75]         Port ap2-wlan1
+[run 20/75]             Interface ap2-wlan1
+[run 20/75]     Bridge ap3
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port ap3-wlan1
+[run 20/75]             Interface ap3-wlan1
+[run 20/75]         Port ap3
+[run 20/75]             Interface ap3
+[run 20/75]                 type: internal
+[run 20/75]         Port ap3-eth1
+[run 20/75]             Interface ap3-eth1
+[run 20/75]     Bridge sw
+[run 20/75]         fail_mode: secure
+[run 20/75]         Port sw-eth3
+[run 20/75]             Interface sw-eth3
+[run 20/75]         Port sw-eth2
+[run 20/75]             Interface sw-eth2
+[run 20/75]         Port sw-eth1
+[run 20/75]             Interface sw-eth1
+[run 20/75]         Port sw
+[run 20/75]             Interface sw
+[run 20/75]                 type: internal
+[run 20/75]         Port sw-eth4
+[run 20/75]             Interface sw-eth4
+[run 20/75]     ovs_version: "3.5.0"
+[run 20/75]
+[run 20/75] ap4 ovs-ofctl dump-ports: OFPST_PORT reply (xid=0x2): 3 ports
+[run 20/75]   port  "ap4-eth1": rx pkts=57, bytes=4506, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=94, bytes=9490, drop=0, errs=0, coll=0
+[run 20/75]   port LOCAL: rx pkts=15, bytes=420, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=21, bytes=2651, drop=0, errs=0, coll=0
+[run 20/75]   port  "ap4-wlan1": rx pkts=45, bytes=3570, drop=0, errs=0, frame=0, over=0, crc=0
+[run 20/75]            tx pkts=80, bytes=8201, drop=0, errs=0, coll=0
+[run 20/75]
+[run 20/75] ap4 ovs-ofctl dump-flows:  cookie=0x0, duration=23.254s, table=0, n_packets=110, n_bytes=9701, priority=0 actions=NORMAL
+[run 20/75]
+[run 20/75]
+[run 20/75] gw-eth0 neigh: 10.0.0.16 lladdr 02:00:00:00:06:00 REACHABLE
+[run 20/75] 10.0.0.12 lladdr 02:00:00:00:02:00 REACHABLE
+[run 20/75] 10.0.0.21 lladdr 02:00:00:00:0b:00 REACHABLE
+[run 20/75] 10.0.0.17 lladdr 02:00:00:00:07:00 REACHABLE
+[run 20/75] 10.0.0.22 lladdr 02:00:00:00:0c:00 REACHABLE
+[run 20/75] 10.0.0.13 lladdr 02:00:00:00:03:00 REACHABLE
+[run 20/75] 10.0.0.18 lladdr 02:00:00:00:08:00 REACHABLE
+[run 20/75] 10.0.0.14 lladdr 02:00:00:00:04:00 REACHABLE
+[run 20/75] 10.0.0.23 lladdr 02:00:00:00:0d:00 REACHABLE
+[run 20/75] 10.0.0.10 lladdr 02:00:00:00:00:00 REACHABLE
+[run 20/75] 10.0.0.19 lladdr 02:00:00:00:09:00 REACHABLE
+[run 20/75] 10.0.0.24 lladdr 02:00:00:00:0e:00 REACHABLE
+[run 20/75] 10.0.0.15 lladdr 02:00:00:00:05:00 REACHABLE
+[run 20/75] 10.0.0.20 lladdr 02:00:00:00:0a:00 REACHABLE
+[run 20/75] 10.0.0.11 lladdr 02:00:00:00:01:00 REACHABLE
+[run 20/75]
+[run 20/75] gw-eth0 arp capturado: tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+[run 20/75] listening on gw-eth0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+[run 20/75]
+[run 20/75] 0 packets captured
+[run 20/75] 0 packets received by filter
+[run 20/75] 0 packets dropped by kernel
+[run 20/75]
+[run 20/75]
+[run 20/75] gw-eth1 neigh: 10.1.0.23 lladdr 02:00:00:00:1c:00 REACHABLE
+[run 20/75] 10.1.0.24 lladdr 02:00:00:00:1d:00 REACHABLE
+[run 20/75] 10.1.0.10 lladdr 02:00:00:00:0f:00 REACHABLE
+[run 20/75] 10.1.0.19 lladdr 02:00:00:00:18:00 REACHABLE
+[run 20/75] 10.1.0.20 lladdr 02:00:00:00:19:00 REACHABLE
+[run 20/75] 10.1.0.15 lladdr 02:00:00:00:14:00 REACHABLE
+[run 20/75] 10.1.0.16 lladdr 02:00:00:00:15:00 REACHABLE
+[run 20/75] 10.1.0.11 lladdr 02:00:00:00:10:00 REACHABLE
+[run 20/75] 10.1.0.12 lladdr 02:00:00:00:11:00 REACHABLE
+[run 20/75] 10.1.0.21 lladdr 02:00:00:00:1a:00 REACHABLE
+[run 20/75] 10.1.0.17 lladdr 02:00:00:00:16:00 REACHABLE
+[run 20/75] 10.1.0.13 lladdr 02:00:00:00:12:00 REACHABLE
+[run 20/75] 10.1.0.22 lladdr 02:00:00:00:1b:00 REACHABLE
+[run 20/75] 10.1.0.18 lladdr 02:00:00:00:17:00 REACHABLE
+[run 20/75] 10.1.0.14 lladdr 02:00:00:00:13:00 REACHABLE
+[run 20/75]
+[run 20/75] gw-eth1 arp capturado: tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+[run 20/75] listening on gw-eth1, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+[run 20/75]
+[run 20/75] 0 packets captured
+[run 20/75] 0 packets received by filter
+[run 20/75] 0 packets dropped by kernel
+[run 20/75]
+[run 20/75]
+[run 20/75] gw-eth2 neigh: 10.2.0.24 lladdr 02:00:00:00:2c:00 REACHABLE
+[run 20/75] 10.2.0.17 lladdr 02:00:00:00:25:00 REACHABLE
+[run 20/75] 10.2.0.14 lladdr 02:00:00:00:22:00 REACHABLE
+[run 20/75] 10.2.0.21 lladdr 02:00:00:00:29:00 REACHABLE
+[run 20/75] 10.2.0.18 lladdr 02:00:00:00:26:00 REACHABLE
+[run 20/75] 10.2.0.11 lladdr 02:00:00:00:1f:00 REACHABLE
+[run 20/75] 10.2.0.22 lladdr 02:00:00:00:2a:00 REACHABLE
+[run 20/75] 10.2.0.15 lladdr 02:00:00:00:23:00 REACHABLE
+[run 20/75] 10.2.0.19 lladdr 02:00:00:00:27:00 REACHABLE
+[run 20/75] 10.2.0.23 lladdr 02:00:00:00:2b:00 REACHABLE
+[run 20/75] 10.2.0.12 lladdr 02:00:00:00:20:00 REACHABLE
+[run 20/75] 10.2.0.16 lladdr 02:00:00:00:24:00 REACHABLE
+[run 20/75] 10.2.0.20 lladdr 02:00:00:00:28:00 REACHABLE
+[run 20/75] 10.2.0.13 lladdr 02:00:00:00:21:00 REACHABLE
+[run 20/75] 10.2.0.10 lladdr 02:00:00:00:1e:00 REACHABLE
+[run 20/75]
+[run 20/75] gw-eth2 arp capturado: tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+[run 20/75] listening on gw-eth2, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+[run 20/75]
+[run 20/75] 0 packets captured
+[run 20/75] 0 packets received by filter
+[run 20/75] 0 packets dropped by kernel
+[run 20/75]
+[run 20/75]
+[run 20/75] gw-eth3 neigh: 10.3.0.16 lladdr 02:00:00:00:33:00 REACHABLE
+[run 20/75] 10.3.0.11 lladdr 02:00:00:00:2e:00 REACHABLE
+[run 20/75] 10.3.0.23 lladdr 02:00:00:00:3a:00 REACHABLE
+[run 20/75] 10.3.0.14 lladdr 02:00:00:00:31:00 REACHABLE
+[run 20/75] 10.3.0.24 lladdr 02:00:00:00:3b:00 REACHABLE
+[run 20/75] 10.3.0.19 lladdr 02:00:00:00:36:00 REACHABLE
+[run 20/75] 10.3.0.10 lladdr 02:00:00:00:2d:00 REACHABLE
+[run 20/75] 10.3.0.13 lladdr 02:00:00:00:30:00 REACHABLE
+[run 20/75] 10.3.0.22 lladdr 02:00:00:00:39:00 REACHABLE
+[run 20/75] 10.3.0.18 lladdr 02:00:00:00:35:00 REACHABLE
+[run 20/75] 10.3.0.21 lladdr 02:00:00:00:38:00 REACHABLE
+[run 20/75] 10.3.0.12 lladdr 02:00:00:00:2f:00 REACHABLE
+[run 20/75] 10.3.0.17 lladdr 02:00:00:00:34:00 REACHABLE
+[run 20/75] 10.3.0.20 lladdr 02:00:00:00:37:00 REACHABLE
+[run 20/75] 10.3.0.15 lladdr 02:00:00:00:32:00 REACHABLE
+[run 20/75]
+[run 20/75] gw-eth3 arp capturado: tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+[run 20/75] listening on gw-eth3, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+[run 20/75]
+[run 20/75] 0 packets captured
+[run 20/75] 0 packets received by filter
+[run 20/75] 0 packets dropped by kernel
+[run 20/75]
+[run 20/75]
+[run 20/75] gw-eth4 neigh: 10.4.0.14 lladdr 02:00:00:00:40:00 REACHABLE
+[run 20/75] 10.4.0.19 lladdr 02:00:00:00:45:00 REACHABLE
+[run 20/75] 10.4.0.10 lladdr 02:00:00:00:3c:00 REACHABLE
+[run 20/75] 10.4.0.24 lladdr 02:00:00:00:4a:00 REACHABLE
+[run 20/75] 10.4.0.22 lladdr 02:00:00:00:48:00 REACHABLE
+[run 20/75] 10.4.0.13 lladdr 02:00:00:00:3f:00 REACHABLE
+[run 20/75] 10.4.0.18 lladdr 02:00:00:00:44:00 REACHABLE
+[run 20/75] 10.4.0.21 lladdr 02:00:00:00:47:00 REACHABLE
+[run 20/75] 10.4.0.12 lladdr 02:00:00:00:3e:00 REACHABLE
+[run 20/75] 10.4.0.17 lladdr 02:00:00:00:43:00 REACHABLE
+[run 20/75] 10.4.0.15 lladdr 02:00:00:00:41:00 REACHABLE
+[run 20/75] 10.4.0.20 lladdr 02:00:00:00:46:00 REACHABLE
+[run 20/75] 10.4.0.11 lladdr 02:00:00:00:3d:00 REACHABLE
+[run 20/75] 10.4.0.16 lladdr 02:00:00:00:42:00 REACHABLE
+[run 20/75] 10.4.0.23 lladdr 02:00:00:00:49:00 REACHABLE
+[run 20/75]
+[run 20/75] gw-eth4 arp capturado: tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+[run 20/75] listening on gw-eth4, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+[run 20/75]
+[run 20/75] 0 packets captured
+[run 20/75] 0 packets received by filter
+[run 20/75] 0 packets dropped by kernel
+[run 20/75]
+[run 20/75] FALHA: exploratorio_s75_spa15_ap05_c02_r01_seed100 terminou com código 1
+root@deeppurple:/app/workspace# efscrollback 1000
+bash: efscrollback: command not found
+root@deeppurple:/app/workspace# defscrollback 1000
+bash: defscrollback: command not found
+root@deeppurple:/app/workspace# hardcopy -h nome_do_arquivo.txt
+bash: hardcopy: command not found
+root@deeppurple:/app/workspace#

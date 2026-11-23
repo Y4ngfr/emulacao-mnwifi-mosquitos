@@ -1,0 +1,9 @@
+{
+    "clusters": {
+        "0": {
+            "densidade_mosquitos": 0.5,
+            "ruido_audio": 30.0,
+            "qualidade_transmissao": 20.0
+        }
+    }
+}

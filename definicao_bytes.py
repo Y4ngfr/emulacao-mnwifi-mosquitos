@@ -1,0 +1,9 @@
+ESTABELECENDO_CONEXAO = bytes([0x0])
+INICIANDO_MONITORAMENTO = bytes([0x1])
+INICIAR_EXPERIMENTO = bytes([0x2])
+FINALIZAR_EXPERIMENTO = bytes([0x3])
+
+TOPICO_SOLICITAR_EXPERIMENTO = "experimento/solicitar"
+TOPICO_INICIAR_EXPERIMENTO = "experimento/iniciar"
+TOPICO_FINALIZAR_EXPERIMENTO = "experimento/finalizar"
+

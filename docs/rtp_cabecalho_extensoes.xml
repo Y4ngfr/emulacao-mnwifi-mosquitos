@@ -1,0 +1,142 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="rtp-cabecalho-extensoes" name="RTP: cabeçalho e extensões">
+    <mxGraphModel dx="1700" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1680" pageHeight="1191" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="titulo" value="Cabeçalho RTP e extensões usadas no sensor" style="text;html=1;fontStyle=1;fontSize=15;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="620" height="26" as="geometry" />
+        </mxCell>
+
+        <mxCell id="nota" value="Construído em util_rtp.build_rtp_header() e interpretado em servidor.receber_rtp(). Formato de rede: big-endian (struct !). Todo pacote sem send_mono_ns é descartado pelo servidor." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;spacingLeft=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="20" y="44" width="1640" height="44" as="geometry" />
+        </mxCell>
+
+        <mxCell id="fixoContainer" value="Cabeçalho RTP fixo — 12 bytes" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;arcSize=4;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="110" width="1000" height="230" as="geometry" />
+        </mxCell>
+
+        <mxCell id="f0" value="&lt;b&gt;Byte 0&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;0x90&lt;br&gt;V=2 · P=0 · X=1 · CC=0&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" value="&lt;b&gt;Byte 1&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;M · PT=96&lt;br&gt;0x60 ou 0xE0&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="240" y="150" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" value="&lt;b&gt;Bytes 2–3&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;sequence (16 bits)&lt;br&gt;seq incremental por pacote&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="420" y="150" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" value="&lt;b&gt;Bytes 4–7&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;timestamp (32 bits)&lt;br&gt;+160 por pacote = 20 ms a 8 kHz&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="610" y="150" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" value="&lt;b&gt;Bytes 8–11&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;SSRC (32 bits)&lt;br&gt;sensor_id + 1&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="820" y="150" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="fixoNota" value="X=1 no byte 0 habilita a extensão. O servidor lê data[0] &amp; 0x10 para detectá-la." style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="260" width="960" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="extContainer" value="Extensão MQ — 16 bytes" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;arcSize=4;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="110" width="580" height="230" as="geometry" />
+        </mxCell>
+
+        <mxCell id="eProfile" value="&lt;b&gt;Bytes 12–13&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;profile = 0x4D51&lt;br&gt;identifica a extensão MQ&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="150" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="eLength" value="&lt;b&gt;Bytes 14–15&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;length = 3 palavras&lt;br&gt;3 × 4 = 12 bytes&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="150" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="eSend" value="&lt;b&gt;Bytes 16–23&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;send_mono_ns (64 bits)&lt;br&gt;struct !Q · tempo de envio do sensor&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="240" width="320" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="eClass" value="&lt;b&gt;Bytes 24–27&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;classe_verdadeira (32 bits)&lt;br&gt;struct !I · rótulo do dataset&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=1.5;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1410" y="240" width="210" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="offsetBar" value="0–11 cabeçalho fixo   |   12–13 profile   |   14–15 length   |   16–23 send_mono_ns   |   24–27 classe_verdadeira   |   28+ payload ADPCM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="1600" height="46" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bitsContainer" value="Detalhe dos bits" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;arcSize=4;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="430" width="780" height="300" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b0Title" value="&lt;b&gt;Byte 0 = 0x90&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="470" width="160" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="b0v" value="V&lt;br&gt;2 bits&lt;br&gt;&lt;b&gt;10&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="b0p" value="P&lt;br&gt;1 bit&lt;br&gt;&lt;b&gt;0&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="185" y="500" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="b0x" value="X&lt;br&gt;1 bit&lt;br&gt;&lt;b&gt;1&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="280" y="500" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="b0cc" value="CC&lt;br&gt;4 bits&lt;br&gt;&lt;b&gt;0000&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="375" y="500" width="150" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b1Title" value="&lt;b&gt;Byte 1 = (marker &lt;&lt; 7) | 96&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="590" width="300" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="b1m" value="M&lt;br&gt;1 bit&lt;br&gt;&lt;b&gt;0 ou 1&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="620" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="b1pt" value="PT&lt;br&gt;7 bits&lt;br&gt;&lt;b&gt;96 = 0x60&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="205" y="620" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bitsNota" value="marker=1 apenas no último bloco do áudio. Sem marker, o servidor mantém o stream aberto para aquele SSRC." style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="690" width="730" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="payloadContainer" value="Payload RTP — bloco ADPCM de 84 bytes" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;arcSize=4;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="840" y="430" width="800" height="300" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pHeader" value="&lt;b&gt;4 bytes&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;estado IMA ADPCM&lt;br&gt;preditor + índice&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="860" y="480" width="180" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="pData" value="&lt;b&gt;80 bytes&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;amostras ADPCM 4 bits&lt;br&gt;160 amostras a 8 kHz&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="480" width="300" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="pNota" value="160 amostras / 8 kHz = 20 ms por pacote. O payload começa no byte 28; o servidor agrupa os blocos por (ssrc, seq) e usa o marker para fechar o áudio." style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="860" y="610" width="760" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="serverContainer" value="Leitura no servidor" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeWidth=1.5;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;arcSize=4;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="760" width="1600" height="260" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sv1" value="&lt;b&gt;1. Básico&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;len &gt;= 12&lt;br&gt;seq, ts, ssrc = data[2:12]&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="810" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="sv2" value="&lt;b&gt;2. Extensão&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;perfil e length em data[12:16]&lt;br&gt;offset = 16 + length × 4&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="330" y="810" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="sv3" value="&lt;b&gt;3. Metadados&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;send_mono_ns = !Q data[16:24]&lt;br&gt;classe = !I data[24:28]&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="620" y="810" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="sv4" value="&lt;b&gt;4. Validação&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;perfil 0x4D51 e length &gt;= 3&lt;br&gt;sem send_mono_ns, descarta&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="930" y="810" width="250" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="sv5" value="&lt;b&gt;5. Uso&lt;/b&gt;&lt;br&gt;&lt;font style='font-size: 11px;'&gt;latência = recv_ns − send_mono_ns&lt;br&gt;payload = data[offset:]&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="810" width="250" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="esv1" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="sv1" target="sv2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="esv2" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="sv2" target="sv3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="esv3" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="sv3" target="sv4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="esv4" value="" style="endArrow=classic;html=1;strokeWidth=1.5;" edge="1" parent="1" source="sv4" target="sv5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

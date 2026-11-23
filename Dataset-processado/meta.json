@@ -1,0 +1,27 @@
+{
+  "sr": 8000,
+  "window": 9984,
+  "classes": {
+    "0": {
+      "arquivos": 70,
+      "janelas": 1701,
+      "janelas_curtas": 0
+    },
+    "1": {
+      "arquivos": 38,
+      "janelas": 920,
+      "janelas_curtas": 0
+    },
+    "2": {
+      "arquivos": 33,
+      "janelas": 770,
+      "janelas_curtas": 0
+    },
+    "3": {
+      "arquivos": 401,
+      "janelas": 1604,
+      "janelas_curtas": 0
+    }
+  },
+  "total_janelas": 4995
+}

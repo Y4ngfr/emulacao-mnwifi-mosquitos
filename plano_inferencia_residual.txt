@@ -1,0 +1,19 @@
+Plano preliminar (somente planejamento; nada foi alterado).
+Pontos confirmados
+- .adpcm é IMA ADPCM WAV bruto: 8 kHz, mono, 4 bits, sem cabeçalho; arquivos atuais têm 10240 bytes (sensor.py:175-189, servidor.py:60-73).
+- Não existe decoder ADPCM→WAV no repo; old/receptor_rtp.py:51-57 escreve cabeçalho PCM sobre bytes compactados, o que não é válido.
+- Validei read-only que envolver os bytes num header IMA ADPCM (0x0011, bloco 1024, 2041 amostras/bloco) e decodificar com ffmpeg funciona. Cada arquivo decodifica para 20410 amostras; precisamos cortar para 19968 (2×9984) para remover padding de bloco.
+- modelo_leve.py faz mel 128 / FFT 2048 / hop 512 / janela 30 frames e retorna p_mosquito/p_nao_mosquito (modelo_leve.py:8-12,37-46,97-111).
+- Existem checkpoints ResNet em MED_trained_models/, mas nenhum código os carrega. torch e torchaudio não estão instalados nem no host nem no container; ffmpeg, numpy, librosa, h5py, soundfile estão.
+- Hoje não há mensagem MQTT de fim (definicao_bytes.py:1-6), e o servidor é morto por encerrar_servicos() em mininet_ambiente.py:466-483.
+Plano proposto
+1. Criar módulo de decode ADPCM, por exemplo audio_adpcm.py: decodificar_adpcm(caminho) -> array float32, com header IMA ADPCM + ffmpeg + trim para 19968.
+2. Criar inferencia_cnn_residual.py seguindo o padrão de modelo_leve.py: carregamento do checkpoint, pré-processamento idêntico ao do modelo, prever(audio) retornando o mesmo dicionário de probabilidades.
+3. Adicionar comando MQTT de fim em definicao_bytes.py e publicá-lo em mininet_ambiente.py logo após o loop do experimento, antes de encerrar serviços.
+4. No servidor.py, ao receber esse comando: aguardar curto grace period para pacotes em voo, selecionar os .adpcm da run, decodificar, rodar a CNN Residual e gravar resultados.
+5. Selecionar áudios por janela da run (mtime ou timestamp do nome audio_<ssrc>_<ms>.adpcm), já que audios_recebidos/ acumula arquivos de várias runs (run_manager.py:92-107 usa a mesma lógica para streams).
+6. Saída inicial só em arquivo: resultados/<run_id>/metricas_cnn_residual.csv e consolidado resultados/metricas_cnn_residual.csv, com run_id,sensor_id,audio,p_mosquito,p_nao_mosquito,classe_prevista. Sem mudanças no dashboard por enquanto.
+7. Só validar depois que você autorizar implementação e me passar os detalhes do modelo.
+Antes de fechar o plano:
+→Asked 3 questions
+Tool execution ab
